@@ -4,8 +4,11 @@ slider.oninput = function()
 {
 }
 
-/* Insert script here to highlight active deck */
+/* Script to highlight deck by clicking */
 
+/* Script to load a song onto the deck */
+
+/* Script to identify a song by name  */
 
 function switchDeck(e)
 {
