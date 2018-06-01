@@ -1,5 +1,10 @@
 
-
+function playAudio(fileName)
+{//make file name from word passed by caller
+    var audio = new Audio("./assets/music/" + fileName + ".mp3");
+    audio.play();
+}
+//alert("File: " + audio.src);
 
 function loadSong(ev)
 {
@@ -22,9 +27,15 @@ function loadSong(ev)
     for (var i = 0; i < ev.dataTransfer.files.length; i++) {
       console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
     }
+    playAudio(files[0].name);
   }
   // Pass event to removeDragData for cleanup
   removeDragData(ev)
+}
+
+function removeDragData(ev)
+{
+  console.log(ev);
 }
 
 function dragOverHandler(ev)
