@@ -1,3 +1,16 @@
+.deck
+{
+   display: inline-block;
+   width: 485px;
+   height: 140px;
+   padding: 15px;
+   border: 1px solid #67676b;
+   background-color: #464545;
+   border-radius: 34px;
+   box-shadow: 13px 15px;
+   margin:auto;
+}
+
 .playing
 {
   border: 10px solid #000000;

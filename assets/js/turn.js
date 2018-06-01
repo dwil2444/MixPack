@@ -11,7 +11,7 @@ function stopRecord(e)
 {
     console.log(e);
     // if(e.propertyName !== 'animation') return;
-    if(e.code !== 'KeyS') return;
+    if(e.code !== 'KeyS' && e.code !== 'Space') return;
     const limbo = document.querySelector('.limbo');
     limbo.classList.remove('playing');
 }
