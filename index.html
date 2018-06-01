@@ -3,8 +3,11 @@
 <html>
 
       <head>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="assets/css/styles.css">
+
       </head>
 
 
@@ -12,12 +15,17 @@
 
       <div class ="deck">
             <img src = "images/record.png" class = "limbo">
+            <div class="""slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <p>Value:
+                    <span id="demo"></span>
+                </p>
+            </div>
             <img src = "images/record.png" class = "limbo">
       </div>
 
-      <!-- <img src = "images/record.png" class = "loader"> -->
-
       <script src = "assets/js/turn.js"> </script>
+      <script src = "./assets/js/slider.js"> </script>
       </body>
 
 
