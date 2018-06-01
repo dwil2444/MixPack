@@ -6,25 +6,21 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="assets/css/styles.css">
-
+        <link rel="stylesheet" href="assets/css/styles.css">  <!-- always load custom stylesheet last -->
       </head>
 
 
       <body>
 
-      <div class ="deck">
-            <img src = "images/record.png" class = "limbo">
-            <div class="""slidecontainer">
+      <ul class ="deck">
+            <li><img src = "images/record.png" class = "limbo active"></li>
+            <li><div class="""slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                <p>Value:
-                    <span id="demo"></span>
-                </p>
-            </div>
-            <img src = "images/record.png" class = "limbo">
-      </div>
+            </div></li>
+            <li><img src = "images/record.png" class = "limbo"></li>
+      </ul>
 
-      <script src = "assets/js/turn.js"> </script>
+      <script src = "./assets/js/turn.js"> </script>
       <script src = "./assets/js/slider.js"> </script>
       </body>
 

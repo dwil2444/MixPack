@@ -1,8 +1,28 @@
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
+var slider = document.getElementById("myRange");    // use this script to change the crossfader
+                                                    // configure crossfader to adjust volume
 slider.oninput = function()
 {
-  output.innerHTML = this.value;
 }
+
+/* Insert script here to highlight active deck */
+
+
+function switchDeck(e)
+{
+    if(e.code !== 'KeyW') return;
+    const decks = document.querySelectorAll('.limbo');
+    const firstDeck = decks[0].classList;
+    const secondDeck = decks[1].classList;
+    if(firstDeck.contains('active'))
+    {
+        firstDeck.remove('active');
+        secondDeck.add('active');
+    }
+    else
+    {
+        secondDeck.remove('active');
+        firstDeck.add('active');
+    }
+}
+
+window.addEventListener('keydown',switchDeck);

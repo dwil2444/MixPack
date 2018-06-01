@@ -1,19 +1,16 @@
 function spinRecord(e)
 {
-    console.log(e);
     if(e.code !== 'KeyP') return;
-    const limbo = document.querySelector('.limbo');
-    console.log(limbo);
-    limbo.classList.add('playing');
+    const active = document.querySelector('.active');
+    console.log(active);
+    active.classList.add('playing');
 }
 
 function stopRecord(e)
 {
-    console.log(e);
-    // if(e.propertyName !== 'animation') return;
     if(e.code !== 'KeyS' && e.code !== 'Space') return;
-    const limbo = document.querySelector('.limbo');
-    limbo.classList.remove('playing');
+    const active = document.querySelector('.active');
+    active.classList.remove('playing');
 }
 
 window.addEventListener('keydown',spinRecord);
