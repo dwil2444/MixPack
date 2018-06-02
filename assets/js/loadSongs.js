@@ -1,39 +1,53 @@
 
-function playAudio(fileName)
-{//make file name from word passed by caller
-    var audio = new Audio("./assets/music/" + fileName + ".mp3");
-    audio.play();
+function playAudio(fileName,element)  // attach the filename to the src tag in html document.
+{//make file name from extension passed by caller
+    console.log(fileName);
+    console.log(element);
+    var attr = element.attributes;
+    const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
+
+    var audio = new Audio("./assets/music/" + fileName);  // replace this with method that gets complete file name, perhaps use nodejs to make a server
+    audioTag.setAttribute("src",audio.src);
+    audio.currentTime = 0;
+    alert('Song Loaded');
+    //audio.play();
+    alert(audio.src);
 }
 //alert("File: " + audio.src);
 
 function loadSong(ev)
 {
-  console.log('File(s) dropped');
-
-  // Prevent default behavior (Prevent file from being opened)
   ev.preventDefault();
-
-  if (ev.dataTransfer.items) {
+  console.log('File(s) dropped');
+  const classes = (ev.path[0].classList.value);
+  const active = document.querySelector(`img[class="${classes.toString()}"]`);
+  // Prevent default behavior (Prevent file from being opened)
+  if (ev.dataTransfer.items)
+  {
     // Use DataTransferItemList interface to access the file(s)
-    for (var i = 0; i < ev.dataTransfer.items.length; i++) {
+    for (var i = 0; i < ev.dataTransfer.items.length; i++)
+    {
       // If dropped items aren't files, reject them
-      if (ev.dataTransfer.items[i].kind === 'file') {
+      if (ev.dataTransfer.items[i].kind === 'file')
+      {
         var file = ev.dataTransfer.items[i].getAsFile();
         console.log('... file[' + i + '].name = ' + file.name);
+        playAudio(file.name,active);
       }
     }
-  } else {
+  }
+  else
+  {
     // Use DataTransfer interface to access the file(s)
-    for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+    for (var i = 0; i < ev.dataTransfer.files.length; i++)
+    {
       console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
     }
-    playAudio(files[0].name);
   }
-  // Pass event to removeDragData for cleanup
-  removeDragData(ev)
+  removeDragData(ev)// Pass event to removeDragData for cleanup
 }
 
-function removeDragData(ev)
+function removeDragData(ev)  // fill this in later
 {
   console.log(ev);
 }
@@ -41,9 +55,7 @@ function removeDragData(ev)
 function dragOverHandler(ev)
 {
   console.log('File(s) in drop zone');
-
-  // Prevent default behavior (Prevent file from being opened)
-  ev.preventDefault();
+  ev.preventDefault();// Prevent default behavior (Prevent file from being opened)
 }
 
 

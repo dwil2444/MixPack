@@ -13,12 +13,16 @@
       <body>
 
       <ul class ="deck">
-            <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active"></li>
+            <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active" data-key="1"></li>
             <li><div class="""slidecontainer">
                 <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
             </div></li>
-            <li><img src = "images/record.png" class = "limbo"></li>
+            <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo" data-key="1;" ></li>
       </ul>
+
+
+      <audio data-key="1" src="" class =""></audio>
+      <audio data-key="2" src="" class =""></audio>
 
       <script src = "./assets/js/turn.js"> </script>
       <script src = "./assets/js/slider.js"> </script>
