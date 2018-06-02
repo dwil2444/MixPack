@@ -12,15 +12,21 @@ function spinRecord(e)
     audio.currentTime = 0;
     audio.play();
     active.classList.add('playing');
-    audio.classList.add('audioRunning');
-    console.log(audio.classList);
+    audioTag.classList.add('audioRunning');
+    //console.log(audioTag);
+    return audio;
 }
 
 function stopRecord(e)
 {
     if(e.code !== 'KeyS' && e.code !== 'Space') return;
     const active = document.querySelector('.active');
-
+    var attr  = active.attributes;
+    console.log(attr);
+    const audioTag = document.querySelector('.audioRunning');
+    audioTag.classList.remove('audioRunning');
+    audio.currentTime = 0;
+    audio.pause();
     active.classList.remove('playing');
 }
 
