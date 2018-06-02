@@ -18,7 +18,6 @@ function spinRecord(e)
     //console.log(audioTag);
     return audio;
 }
-
 function stopRecord(e)
 {
     if(e.code !== 'KeyS' && e.code !== 'Space') return;
