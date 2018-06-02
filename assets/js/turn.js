@@ -1,3 +1,5 @@
+let audio;
+
 function spinRecord(e)
 {
     if(e.code !== 'KeyP') return;
@@ -7,7 +9,7 @@ function spinRecord(e)
     console.log(attr);
     const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
     console.log(audioTag);
-    var audio = new Audio(audioTag.getAttribute("src"));
+    audio = new Audio(audioTag.getAttribute("src"));
     if(!audio)return;
     audio.currentTime = 0;
     audio.play();

@@ -5,15 +5,14 @@ function playAudio(fileName,element)  // attach the filename to the src tag in h
     console.log(element);
     var attr = element.attributes;
     const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
-
+    console.log(attr[2].nodeValue);
+    console.log(audioTag);
     var audio = new Audio("./assets/music/" + fileName);  // replace this with method that gets complete file name, perhaps use nodejs to make a server
     audioTag.setAttribute("src",audio.src);
     audio.currentTime = 0;
     alert('Song Loaded');
-    //audio.play();
     alert(audio.src);
 }
-//alert("File: " + audio.src);
 
 function loadSong(ev)
 {
@@ -44,7 +43,7 @@ function loadSong(ev)
       console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
     }
   }
-  removeDragData(ev)// Pass event to removeDragData for cleanup
+  //removeDragData(ev)// Pass event to removeDragData for cleanup
 }
 
 function removeDragData(ev)  // fill this in later
