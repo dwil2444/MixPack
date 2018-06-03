@@ -1,8 +1,8 @@
-var slider = document.getElementById("myRange");    // use this script to change the crossfader
-                                                    // configure crossfader to adjust volume
-slider.oninput = function()
-{
-}
+// var slider = document.getElementById("myRange");    // use this script to change the crossfader
+//                                                     // configure crossfader to adjust volume
+// slider.oninput = function()
+// {
+// }
 
 /* Script to highlight deck by clicking */
 

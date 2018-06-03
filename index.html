@@ -13,20 +13,33 @@
 
       <!--2. Add volume sliders above the crossfader and between the two decks  -->
       <!--3. change the color of the slider button  -->
-      
+
       <body>
       <div class = "row">
         <br><br><br><br><br><br><br><br> <!-- Break tags are temporary for visual effect-->
         <div class = "col-lg-12 text-center">
               <ul class ="deck">
                     <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active" data-key="1"></li>
-                    <li>
-                      <div class="""slidecontainer">
-                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                      </div>
+                    <li class ="vrangerLi">
+                      <!-- <div class="slidecontainer"> -->
+                        <input type="range" min="1" max="100" value="100" class="slider vranger">
+                      <!-- </div> -->
+                    </li>
+
+                    <li class ="vrangerLi">
+                      <!-- <div class="slidecontainer"> -->
+                        <input type="range" min="1" max="100" value="100" class="slider vranger">
+                      <!-- </div> -->
                     </li>
                     <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo" data-key="2" ></li>
-              </ul>
+            <br>
+            <br>
+            <li>
+              <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider">
+              </div>
+            </li>
+            </ul>
         </div>
     </div>
 

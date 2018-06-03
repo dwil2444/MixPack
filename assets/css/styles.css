@@ -8,8 +8,8 @@
 {
    /* display: inline-block; */
    opacity: 0.9;
-   width: 550px;
-   height: 170px;
+   width: 750px;
+   height: 280px;
    padding: 15px;
    border: 1px solid #67676b;
    background-color: #000b3b;
@@ -24,8 +24,8 @@
 {
     display: inline-block;
     font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
 }
 
 .playing
@@ -42,16 +42,19 @@
 {
   border: 10px solid #000000;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
+}
+
+.limbo:hover
+{
+  cursor:grab;
 }
 
 .active
 {
   border: 10px solid #e20707;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
 }
 
 @-webkit-keyframes spin
@@ -113,10 +116,22 @@
     height: 15px;
     border-radius: 50%;
     background: #e20707;
-    cursor: pointer;
+    cursor: grab;
 }
 
 body
 {
     background: url(http://paperlief.com/images/deadmau5-logo-hd-wallpaper-1.jpg) bottom center;
+}
+.vranger
+{
+  /* margin-top: 50px; */
+   transform: rotate(270deg);
+  -moz-transform: rotate(270deg); /*do same for other browsers if required*/
+}
+.vrangerLi
+{
+    padding: 0px;
+    height: 10%;
+    width: 20%;
 }
