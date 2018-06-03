@@ -120,3 +120,9 @@ body
 {
     background: url(http://paperlief.com/images/deadmau5-logo-hd-wallpaper-1.jpg) bottom center;
 }
+.vranger
+{
+  /* margin-top: 50px; */
+   transform: rotate(270deg);
+  -moz-transform: rotate(270deg); /*do same for other browsers if required*/
+}
