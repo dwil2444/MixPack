@@ -5,22 +5,32 @@
       <head>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type = "text/css">
         <link rel="stylesheet" href="assets/css/styles.css">  <!-- always load custom stylesheet last -->
+        <link rel="shortcut icon" href="images/logo.png">
       </head>
 
-
+      <!--1. Drop the deck into the middle of the page  -->
+      <!--2. Add volume sliders above the crossfader and between the two decks  -->
+      <!--3. change the color of the slider button  -->
       <body>
-
-      <ul class ="deck">
-            <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active" data-key="1"></li>
-            <li>
-              <div class="""slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-              </div>
-            </li>
-            <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo" data-key="2" ></li>
-      </ul>
+        <div class = "row">
+        </div>
+        <div class = "row">
+        </div>
+      <div class = "row">
+        <div class = "page-header col-lg-12 text-center">
+              <ul class ="deck">
+                    <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active" data-key="1"></li>
+                    <li>
+                      <div class="""slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                      </div>
+                    </li>
+                    <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo" data-key="2" ></li>
+              </ul>
+        </div>
+    </div>
 
 
       <audio data-key="1" src="" class =""></audio>
