@@ -1,7 +1,6 @@
-<!-- modify load song and playAudio to utilize file api-->
 
 var context = new AudioContext();
-let Asource;
+
 function playAudio(file,element)
 {
     var reader = new FileReader();
@@ -11,6 +10,7 @@ function playAudio(file,element)
             context.decodeAudioData(data, function(buffer)
             {
                 Asource = playSound(buffer);
+                console.log(Asource);
             });
         });
         reader.readAsArrayBuffer(file)
@@ -21,6 +21,7 @@ var playSound = function(buffer)
     var source = context.createBufferSource();
     source.buffer = buffer;
     source.connect(context.destination);
+    return source;
 }
 
 function loadSong(ev)
@@ -71,5 +72,3 @@ function dragOverHandler(ev)
 
 
 window.addEventListener('drag',loadSong);
-
-playAudio.exports = Asource;

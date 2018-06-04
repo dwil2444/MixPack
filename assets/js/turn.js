@@ -1,5 +1,3 @@
-var Asource = require('loadSongs.js');
-let audio = Asource;
 
 function spinRecord(e)
 {
@@ -16,7 +14,6 @@ function spinRecord(e)
     active.classList.add('playing');
     audioTag.classList.add('audioRunning');
     Asource.start(0);
-
 }
 function stopRecord(e)
 {
@@ -29,6 +26,7 @@ function stopRecord(e)
     audio.currentTime = 0;
     audio.pause();
     active.classList.remove('playing');
+    Asource.stop();
 }
 
 window.addEventListener('keydown',spinRecord);
