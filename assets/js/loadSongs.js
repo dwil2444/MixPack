@@ -1,22 +1,32 @@
+<!-- modify load song and playAudio to utilize file api-->
 
-function playAudio(fileName,element)  // attach the filename to the src tag in html document.
-{//make file name from extension passed by caller
-    console.log(fileName);
-    console.log(element);
-    var attr = element.attributes;
-    const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
-    console.log(attr[2].nodeValue);
-    console.log(audioTag);
-    var audio = new Audio("./assets/music/" + fileName);  // replace this with method that gets complete file name, perhaps use nodejs to make a server
-    audioTag.setAttribute("src",audio.src);
-    audio.currentTime = 0;
-    alert('Song Loaded');
-    alert(audio.src);
+var context = new AudioContext();
+let Asource;
+function playAudio(file,element)
+{
+    var reader = new FileReader();
+    reader.addEventListener('load', function(e)
+    {
+            var data = e.target.result
+            context.decodeAudioData(data, function(buffer)
+            {
+                Asource = playSound(buffer);
+            });
+        });
+        reader.readAsArrayBuffer(file)
+}
+
+var playSound = function(buffer)
+{
+    var source = context.createBufferSource();
+    source.buffer = buffer;
+    source.connect(context.destination);
 }
 
 function loadSong(ev)
 {
   ev.preventDefault();
+  ev.stopPropagation();
   console.log('File(s) dropped');
   const classes = (ev.path[0].classList.value);
   const active = document.querySelector(`img[class="${classes.toString()}"]`);
@@ -31,7 +41,9 @@ function loadSong(ev)
       {
         var file = ev.dataTransfer.items[i].getAsFile();
         console.log('... file[' + i + '].name = ' + file.name);
-        playAudio(file.name,active);
+        console.log(file);
+        console.log('file above');
+        playAudio(file,active);
       }
     }
   }
@@ -59,3 +71,5 @@ function dragOverHandler(ev)
 
 
 window.addEventListener('drag',loadSong);
+
+playAudio.exports = Asource;

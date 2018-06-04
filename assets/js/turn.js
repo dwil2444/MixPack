@@ -1,4 +1,5 @@
-let audio;
+var Asource = require('loadSongs.js');
+let audio = Asource;
 
 function spinRecord(e)
 {
@@ -10,13 +11,12 @@ function spinRecord(e)
     const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
     console.log(audioTag);
     audio = new Audio(audioTag.getAttribute("src"));
-    if(!audio)return;
     audio.currentTime = 0;
     audio.play();
     active.classList.add('playing');
     audioTag.classList.add('audioRunning');
-    //console.log(audioTag);
-    return audio;
+    Asource.start(0);
+
 }
 function stopRecord(e)
 {

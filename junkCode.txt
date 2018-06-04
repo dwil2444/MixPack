@@ -1,0 +1,12 @@
+//*******************************************
+// console.log(fileName);
+// console.log(element);
+// var attr = element.attributes;
+// const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
+// console.log(attr[2].nodeValue);
+// console.log(audioTag);
+// var audio = new Audio("./assets/music/" + fileName);  // replace this with method that gets complete file name, perhaps use nodejs to make a server
+// audioTag.setAttribute("src",audio.src);
+// audio.currentTime = 0;
+// alert('Song Loaded');
+// alert(audio.src);
