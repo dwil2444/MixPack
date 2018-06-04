@@ -1,4 +1,3 @@
-let audio;
 
 function spinRecord(e)
 {
@@ -10,13 +9,11 @@ function spinRecord(e)
     const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
     console.log(audioTag);
     audio = new Audio(audioTag.getAttribute("src"));
-    if(!audio)return;
     audio.currentTime = 0;
     audio.play();
     active.classList.add('playing');
     audioTag.classList.add('audioRunning');
-    //console.log(audioTag);
-    return audio;
+    Asource.start(0);
 }
 function stopRecord(e)
 {
@@ -29,6 +26,7 @@ function stopRecord(e)
     audio.currentTime = 0;
     audio.pause();
     active.classList.remove('playing');
+    Asource.stop();
 }
 
 window.addEventListener('keydown',spinRecord);
