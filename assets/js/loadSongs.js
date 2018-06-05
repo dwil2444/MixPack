@@ -9,14 +9,14 @@ function playAudio(file,element)
             var data = e.target.result
             context.decodeAudioData(data, function(buffer)
             {
-                Asource = playSound(buffer);
+                Asource = loadBuffer(buffer);
                 console.log(Asource);
             });
         });
         reader.readAsArrayBuffer(file)
 }
 
-var playSound = function(buffer)
+var loadBuffer = function(buffer)
 {
     var source = context.createBufferSource();
     source.buffer = buffer;

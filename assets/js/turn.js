@@ -1,5 +1,7 @@
 
 // Use separate  audio streams to enable continuous playback.
+// maybe use npm audio packages
+var i = 0;
 
 function spinRecord(e)
 {
@@ -14,8 +16,14 @@ function spinRecord(e)
     // audio.currentTime = 0;
     // audio.play();
     active.classList.add('playing');
+    if(i > 0)
+    {
+      context.resume();
+      return;
+    }
     // audioTag.classList.add('audioRunning');
     Asource.start(0);
+    i++;
 }
 function stopRecord(e)
 {
@@ -28,7 +36,7 @@ function stopRecord(e)
     // audio.currentTime = 0;
     // audio.pause();
     active.classList.remove('playing');
-    Asource.stop();
+    context.suspend();
 }
 
 window.addEventListener('keydown',spinRecord);
