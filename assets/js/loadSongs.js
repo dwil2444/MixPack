@@ -1,5 +1,5 @@
 
-var context = new AudioContext();
+var context = new AudioContext();  // create 2 audio contexts
 
 function playAudio(file,element)
 {
