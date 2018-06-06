@@ -1,6 +1,10 @@
 
 var context = new AudioContext();  // create 2 audio contexts
-
+/*
+1. Maybe create 2 separate audio contexts
+2. Each deck should correspond to a specific context, so always check which deck is active in play and pause functions
+3. 
+*/
 function playAudio(file,element)
 {
     var reader = new FileReader();

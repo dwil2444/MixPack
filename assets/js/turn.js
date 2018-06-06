@@ -1,8 +1,9 @@
 let Asource;
+let Bsource;
 // Use separate  audio streams to enable continuous playback.
 // maybe use npm audio packages
 // split the audio sources for both decks
-//
+// set the audio context on opening then suspend, resume when play is hit, suspend otherwise
 var i = 0;
 
 function spinRecord(e)
@@ -10,7 +11,6 @@ function spinRecord(e)
     if(e.code !== 'KeyP') return;
     const active = document.querySelector('.active');
     console.log(active);
-
     active.classList.add('playing');
     if(i > 0)
     {
