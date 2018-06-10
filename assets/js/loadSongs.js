@@ -15,6 +15,11 @@ function playAudio(file,element)
       {
           leftContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
+            if(i>0)
+            {
+                i=0;
+                aSource.stop();
+            }
             aSource = loadBuffer(buffer,element.id);
           });
       }
@@ -22,6 +27,11 @@ function playAudio(file,element)
       {
           rightContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
+            if(j>0)
+            {
+                j=0;
+                bSource.stop();
+            }
             bSource = loadBuffer(buffer,element.id);
           });
       }
