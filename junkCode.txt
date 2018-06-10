@@ -10,3 +10,24 @@
 // audio.currentTime = 0;
 // alert('Song Loaded');
 // alert(audio.src);
+
+
+
+
+// var attr  = active.attributes;
+// console.log(attr);
+// const audioTag = document.querySelector(`audio[data-key="${attr[2].nodeValue}"]`);
+// console.log(audioTag);
+// audio = new Audio(audioTag.getAttribute("src"));
+// audio.currentTime = 0;
+// audio.play();
+
+// audioTag.classList.add('audioRunning');
+
+
+// var attr  = active.attributes;
+// console.log(attr);
+// const audioTag = document.querySelector('.audioRunning');
+// audioTag.classList.remove('audioRunning');
+// audio.currentTime = 0;
+// audio.pause();
