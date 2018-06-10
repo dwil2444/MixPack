@@ -9,6 +9,9 @@
 
 /* Script to identify a song by name  */
 
+// active is the currently highlighted deck
+// playing is the deck which currently is running music
+
 function switchDeck(e)
 {
     if(e.code !== 'KeyW') return;

@@ -1,31 +1,50 @@
 
-var context = new AudioContext();  // create 2 audio contexts
 /*
 1. Maybe create 2 separate audio contexts
 2. Each deck should correspond to a specific context, so always check which deck is active in play and pause functions
-3. 
+3.
 */
 function playAudio(file,element)
 {
     var reader = new FileReader();
+    reader.readAsArrayBuffer(file);  // loads an array buffer representing the file's data into the result tag
     reader.addEventListener('load', function(e)
     {
-            var data = e.target.result
-            context.decodeAudioData(data, function(buffer)
-            {
-                Asource = loadBuffer(buffer);
-                console.log(Asource);
-            });
-        });
-        reader.readAsArrayBuffer(file)
+      var data = e.target.result
+      if(element.id == 'leftDeck')
+      {
+          leftContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          {
+            aSource = loadBuffer(buffer,element.id);
+          });
+      }
+      else
+      {
+          rightContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          {
+            bSource = loadBuffer(buffer,element.id);
+          });
+      }
+    });
+
 }
 
-var loadBuffer = function(buffer)
+var loadBuffer = function(buffer,id)
 {
-    var source = context.createBufferSource();
+  if(id == 'leftDeck')
+  {
+    var source = leftContext.createBufferSource();
     source.buffer = buffer;
-    source.connect(context.destination);
+    source.connect(leftContext.destination);
     return source;
+  }
+  else
+  {
+    var source = rightContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(rightContext.destination);
+    return source;
+  }
 }
 
 function loadSong(ev)
