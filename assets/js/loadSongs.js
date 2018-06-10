@@ -6,6 +6,7 @@
 */
 function playAudio(file,element)
 {
+    // query the active deck and remove playing class
     var reader = new FileReader();
     reader.readAsArrayBuffer(file);  // loads an array buffer representing the file's data into the result tag
     reader.addEventListener('load', function(e)
@@ -17,10 +18,11 @@ function playAudio(file,element)
           {
             if(i>0)
             {
-                i=0;
+                i = 0;
                 aSource.stop();
             }
             aSource = loadBuffer(buffer,element.id);
+            leftContext.resume();
           });
       }
       else
@@ -29,10 +31,11 @@ function playAudio(file,element)
           {
             if(j>0)
             {
-                j=0;
+                j = 0;
                 bSource.stop();
             }
             bSource = loadBuffer(buffer,element.id);
+            rightContext.resume();
           });
       }
     });
