@@ -37,7 +37,7 @@ function playAudio(file,element)
             if(i>0)
             {
                 i = 0;
-                aSource.stop();
+                aSource.source.stop();
             }
             aSource = loadBuffer(buffer,element.id);
           });
@@ -49,7 +49,7 @@ function playAudio(file,element)
             if(j>0)
             {
                 j = 0;
-                bSource.stop();
+                bSource.source.stop();
             }
             bSource = loadBuffer(buffer,element.id);
           });

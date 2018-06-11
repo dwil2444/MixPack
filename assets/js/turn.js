@@ -22,7 +22,7 @@ function stopRecord(e)
     active.classList.remove('playing');
     if(active.id == 'leftDeck')
     {
-      context.suspend();  //This may be insufficient for audio effects such as key tuning and gain
+      context.suspend();  //  replace these blocks with code to resume audiobuffersourcenode
     }
     else
     {
