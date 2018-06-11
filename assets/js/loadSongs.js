@@ -1,11 +1,30 @@
 
 /*
-1. Maybe create 2 separate audio contexts
-2. Each deck should correspond to a specific context, so always check which deck is active in play and pause functions
-3.
+3. Connect the audiobuffersourcenodes to all relevant effects before connecting them to their destination.
 */
 function playAudio(file,element)
 {
+    // query the active deck and remove playing class
+    const actives = document.querySelectorAll('.limbo');
+    actives.forEach(function(limbo)
+    {
+      if(!(limbo.classList.contains('.playing')))
+      {
+        if(limbo.id == element.id)
+        {
+          limbo.classList.remove('playing');
+        }
+      }
+    });
+    const active = document.querySelector('.active');
+    if(active.classList.contains('playing'))
+    {
+      if(active.id == element.id)
+      {
+          active.classList.remove('playing');
+      }
+
+    }
     var reader = new FileReader();
     reader.readAsArrayBuffer(file);  // loads an array buffer representing the file's data into the result tag
     reader.addEventListener('load', function(e)
@@ -13,15 +32,25 @@ function playAudio(file,element)
       var data = e.target.result
       if(element.id == 'leftDeck')
       {
-          leftContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          context.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
+            if(i>0)
+            {
+                i = 0;
+                aSource.source.stop();
+            }
             aSource = loadBuffer(buffer,element.id);
           });
       }
       else
       {
-          rightContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          context.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
+            if(j>0)
+            {
+                j = 0;
+                bSource.source.stop();
+            }
             bSource = loadBuffer(buffer,element.id);
           });
       }
@@ -31,20 +60,16 @@ function playAudio(file,element)
 
 var loadBuffer = function(buffer,id)
 {
-  if(id == 'leftDeck')
-  {
-    var source = leftContext.createBufferSource();
+    var source = context.createBufferSource();
+    var gainNode = context.createGain ? context.createGain() : context.createGainNode();
+    source.loop = true; //remove this later
     source.buffer = buffer;
-    source.connect(leftContext.destination);
-    return source;
-  }
-  else
-  {
-    var source = rightContext.createBufferSource();
-    source.buffer = buffer;
-    source.connect(rightContext.destination);
-    return source;
-  }
+    source.connect(gainNode);
+    gainNode.connect(context.destination);
+    return{
+      source: source,
+      gainNode: gainNode
+    };
 }
 
 function loadSong(ev)
