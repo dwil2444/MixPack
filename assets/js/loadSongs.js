@@ -7,6 +7,26 @@
 function playAudio(file,element)
 {
     // query the active deck and remove playing class
+    const actives = document.querySelectorAll('.limbo');
+    actives.forEach(function(limbo)
+    {
+      if(!(limbo.classList.contains('.playing')))
+      {
+        if(limbo.id == element.id)
+        {
+          limbo.classList.remove('playing');
+        }
+      }
+    });
+    const active = document.querySelector('.active');
+    if(active.classList.contains('playing'))
+    {
+      if(active.id == element.id)
+      {
+          active.classList.remove('playing');
+      }
+
+    }
     var reader = new FileReader();
     reader.readAsArrayBuffer(file);  // loads an array buffer representing the file's data into the result tag
     reader.addEventListener('load', function(e)
