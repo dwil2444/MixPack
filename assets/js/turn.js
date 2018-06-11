@@ -22,11 +22,11 @@ function stopRecord(e)
     active.classList.remove('playing');
     if(active.id == 'leftDeck')
     {
-      leftContext.suspend();  //This may be insufficient for audio effects such as key tuning and gain
+      context.suspend();  //This may be insufficient for audio effects such as key tuning and gain
     }
     else
     {
-      rightContext.suspend();
+      context.suspend();  // replace these blocks with code to resume audiobuffersourcenode
     }
 }
 
@@ -36,20 +36,20 @@ function loadRecord(id)
   {
       if(i > 0)
       {
-        leftContext.resume();
+        context.resume();
         return;
       }
-      aSource.start(0);
+      aSource.source.start(0);
       i++;
   }
   else
   {
     if(j > 0)
     {
-      rightContext.resume();
+      context.resume();
       return;
     }
-    bSource.start(0);
+    bSource.source.start(0);
     j++;
   }
 }

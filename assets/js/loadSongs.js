@@ -1,8 +1,6 @@
 
 /*
-1. Maybe create 2 separate audio contexts
-2. Each deck should correspond to a specific context, so always check which deck is active in play and pause functions
-3.
+3. Connect the audiobuffersourcenodes to all relevant effects before connecting them to their destination.
 */
 function playAudio(file,element)
 {
@@ -34,7 +32,7 @@ function playAudio(file,element)
       var data = e.target.result
       if(element.id == 'leftDeck')
       {
-          leftContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          context.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
             if(i>0)
             {
@@ -42,12 +40,11 @@ function playAudio(file,element)
                 aSource.stop();
             }
             aSource = loadBuffer(buffer,element.id);
-            leftContext.resume();
           });
       }
       else
       {
-          rightContext.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
+          context.decodeAudioData(data, function(buffer)    //second argument is a callback function containing the decoded data
           {
             if(j>0)
             {
@@ -55,7 +52,6 @@ function playAudio(file,element)
                 bSource.stop();
             }
             bSource = loadBuffer(buffer,element.id);
-            rightContext.resume();
           });
       }
     });
@@ -64,20 +60,16 @@ function playAudio(file,element)
 
 var loadBuffer = function(buffer,id)
 {
-  if(id == 'leftDeck')
-  {
-    var source = leftContext.createBufferSource();
+    var source = context.createBufferSource();
+    var gainNode = context.createGain ? context.createGain() : context.createGainNode();
+    source.loop = true; //remove this later
     source.buffer = buffer;
-    source.connect(leftContext.destination);
-    return source;
-  }
-  else
-  {
-    var source = rightContext.createBufferSource();
-    source.buffer = buffer;
-    source.connect(rightContext.destination);
-    return source;
-  }
+    source.connect(gainNode);
+    gainNode.connect(context.destination);
+    return{
+      source: source,
+      gainNode: gainNode
+    };
 }
 
 function loadSong(ev)

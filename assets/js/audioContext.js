@@ -1,5 +1,4 @@
-var leftContext = new AudioContext;
-var rightContext = new AudioContext;
+var context = new AudioContext();
 window.addEventListener('load', contextInit, false);
 
 function contextInit()
@@ -7,8 +6,7 @@ function contextInit()
   try
   {
     window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    leftContext = new AudioContext();
-    rightContext = new AudioContext();
+    context = new AudioContext();
   }
   catch(e)
   {
