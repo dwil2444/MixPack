@@ -14,3 +14,5 @@ press the 's' key. Use the crossfader between the two decks to mix songs. Use th
 buttons adjacent to both decks to adjust the respective volume of each deck.
 
 Enjoy!
+
+NOTE: MixPack is not yet fully functional
