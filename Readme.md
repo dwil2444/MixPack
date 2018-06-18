@@ -15,4 +15,5 @@ buttons adjacent to both decks to adjust the respective volume of each deck.
 
 Enjoy!
 
-NOTE: MixPack is not yet fully functional
+NOTE: MixPack is not yet fully functional.
+Bugs are fully documented and are being corrected.
