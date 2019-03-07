@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+      <head>
+        <meta charset="utf-8"/>
+        <meta name="author" content="Dane Williamson">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type = "text/css">
+        <link rel="stylesheet" href="assets/css/styles.css">  <!-- always load custom stylesheet last -->
+        <link rel="shortcut icon" href="images/logo.png">
+        <title> MixPack Sound System </title>
+      </head>
+
+      <body>
+      <div class = "row">
+        <br><br><br><br><br><br><br><br> <!-- Break tags are temporary for visual effect-->
+        <div class="container-fluid">
+        <div class = "col-lg-12 text-center">
+              <ul class ="deck">
+                    <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo active" data-key="1" id = "leftDeck"></li>
+                    <li class ="vrangerLi">
+                      <!-- <div class="slidecontainer"> -->
+                        <input type="range" min="1" max="100" value="100" class="slider vranger" oninput="volumeSlider(this.id)" id ="leftDeckVolume">
+                      <!-- </div> -->
+                    </li>
+
+                    <li class ="vrangerLi">
+                      <!-- <div class="slidecontainer"> -->
+                        <input type="range" min="1" max="100" value="100" class="slider vranger"  oninput="volumeSlider(this.id)" id = "rightDeckVolume">
+                      <!-- </div> -->
+                    </li>
+                    <li ondrop = "loadSong(event);" ondragover="dragOverHandler(event);"><img src = "images/record.png" class = "limbo" data-key="2" id = "rightDeck"></li>
+                    <br>
+                    <br>
+                    <li>
+                      <div class="slidecontainer">
+                        <input type="range" min="1" max="100" value="50" class="slider" oninput="CrossfadeSample.crossfade(this);">
+                      </div>
+                    </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+
+      <audio data-key="1" src="" class =""></audio>
+      <audio data-key="2" src="" class =""></audio>
+
+      <script src = "./assets/js/audioContext.js"> </script>
+      <script src = "./assets/js/turn.js"> </script>
+      <script src = "./assets/js/deckSwitcher.js"> </script>
+      <script src = "./assets/js/loadSongs.js"></script>
+      <script src = "./assets/js/volume.js"></script>
+      <script src = "./assets/js/crossFade.js"></script>
+      </body>
+
+
+</html>
