@@ -1,0 +1,135 @@
+.audioRunning
+{
+
+}
+.deck
+{
+   /* display: inline-block; */
+   opacity: 0.9;
+   width: 750px;
+   height: 280px;
+   padding: 15px;
+   border: 1px solid #67676b;
+   background-color: #000b3b;
+   border-radius: 34px;
+   box-shadow: 1px 4px 20px 12px;
+   margin:auto;
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+.deck li
+{
+    display: inline-block;
+    font-size: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+}
+
+.playing
+{
+  border: 10px solid #000000;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+.limbo
+{
+  border: 10px solid #000000;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.limbo:hover
+{
+  cursor:grab;
+}
+
+.active
+{
+  border: 10px solid #e20707;
+  border-radius: 50%;
+}
+
+@-webkit-keyframes spin
+{
+  0%
+  {
+    -webkit-transform: rotate(0deg);
+  }
+  100%
+  {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin
+{
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.slidecontainer
+{
+    width: 100%;
+}
+
+.slider
+{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover
+{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb
+{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e20707;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb
+{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e20707;
+    cursor: grab;
+}
+
+body
+{
+    background: url(http://paperlief.com/images/deadmau5-logo-hd-wallpaper-1.jpg) bottom center;
+}
+.vranger
+{
+  /* margin-top: 50px; */
+   transform: rotate(270deg);
+  -moz-transform: rotate(270deg); /*do same for other browsers if required*/
+}
+.vrangerLi
+{
+    padding: 0px;
+    height: 10%;
+    width: 20%;
+}

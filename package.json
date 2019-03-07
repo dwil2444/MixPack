@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build-watch": "webpack --watch",
     "clean": "rm -r -f ./node_modules",
-    "init": "yarn install"
+    "init": "yarn install",
+    "start": "live-server public/"
   },
   "repository": "https://github.com/dwil2444/MixPack",
   "author": "dwil2444 <daneandrew16@gmail.com>",
